@@ -62,3 +62,8 @@ Thumbs.db
 baseline_summary.txt
 fail_summary.txt
 summary_off.txt
+
+# --- personal working notes, not part of the submission ---
+# SCRIPT.md is the author's own shot-by-shot recording notes.
+# Useful locally, noise to a reviewer. DEMO.md is the public one.
+SCRIPT.md
