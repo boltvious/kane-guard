@@ -251,4 +251,4 @@ goal4_last.md           the last criterion in detail, with its outcome
 
 Built with Kane CLI `0.10.3`.
 
-Total spend across the entire project, including 7 experiments, 5 live loop runs, and two full authoring passes: **roughly 330 of 10,000 credits**.
+Total spend across the entire project, including 7 experiments, 5 live loop runs, and two full authoring passes.
