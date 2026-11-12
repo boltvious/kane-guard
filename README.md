@@ -59,6 +59,29 @@ save
 
 These live in `goal.md`. Every design decision traces back to one of them.
 
+### How the guard reads Kane
+
+The guard reads three signals from the NDJSON stream, and nothing it does not
+need:
+
+| Signal | Where it comes from | How the guard uses it |
+|---|---|---|
+| `overall_status` | `test_md_done` | pass/fail — the authority |
+| `family` + `confirmed` | `test_md_bug_verdict` | which target to fix, and whether it may act at all |
+| `result_code` | `run_end` | cross-check: `740` is a confirmed product bug, per Kane's docs |
+
+Exit codes are used as a sanity check only (`0` pass, `1` fail, `2` error,
+`3` timeout/cancel). A run without a `test_md_done` event is treated as
+incomplete and escalated — a truncated log must never be read as a pass.
+
+One thing the documentation does not mention, and we hit it three times: Kane
+can **record a duplicate click** during authoring. Replay then runs the second
+click against an element that is gone. The guard surfaces that as
+`automation_bug`, correctly, but the flow under test never reaches the
+assertion that would have checked the app. Fixing that is the author's job —
+`ledger/` removes the button once an issue is done, so there is nothing left
+to double-click.
+
 ---
 
 ## Proof, not claims
