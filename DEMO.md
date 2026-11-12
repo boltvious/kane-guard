@@ -57,7 +57,7 @@ node toggle.js add_crash
 
 > "Kane runs."
 
-Run it:
+Run it (or start from a prepared state if timing matters):
 
 ```bat
 cd ledger
@@ -116,7 +116,7 @@ End card: **github.com/boltvious/kane-guard — Kane Guard**
 - App running on 4175, dashboard on 4174
 - `bug.mode` set to `off`
 - Ledger showing 12 iterations
-- A terminal window at `ledger/` with the commands ready to paste
+- A terminal window at `ledger/` with the commands typed out and ready to paste
 
 ---
 
