@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kane Bug Sandbox</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <h1 id="app-title">Kane Bug Sandbox</h1>
+      <span id="mode-badge" class="badge" title="current injected-bug mode">mode: ?</span>
+    </header>
+
+    <!-- ================= LOGIN ================= -->
+    <section id="login-view" class="card" aria-label="Login">
+      <h2>Sign in</h2>
+      <form id="login-form" novalidate>
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username" placeholder="admin" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="secret123" />
+
+        <button id="login-submit" type="submit">Sign in</button>
+      </form>
+      <p id="login-error" class="error" role="alert" hidden></p>
+      <p class="hint">Valid credentials: <code>admin</code> / <code>secret123</code></p>
+    </section>
+
+    <!-- ================= TASKS ================= -->
+    <section id="tasks-view" class="card" aria-label="Tasks" hidden>
+      <div class="row">
+        <h2>Your tasks</h2>
+        <button id="logout" type="button" class="ghost">Sign out</button>
+      </div>
+
+      <form id="task-form" class="row">
+        <input id="task-title" name="title" type="text" placeholder="New task title" />
+        <button id="task-add" type="submit">Add task</button>
+      </form>
+
+      <p id="task-error" class="error" role="alert" hidden></p>
+      <ul id="task-list" aria-label="Task list"></ul>
+      <p id="task-empty" class="hint" hidden>No tasks yet.</p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

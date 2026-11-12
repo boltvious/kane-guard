@@ -1,0 +1,116 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #0f1115;
+  color: #e6e8ee;
+}
+
+.shell {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+#app-title { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #1f2430;
+  border: 1px solid #2c3342;
+  color: #9aa4b8;
+  font-variant-numeric: tabular-nums;
+}
+
+.badge.dirty { background: #3a1d1d; border-color: #6b2b2b; color: #ffb4b4; }
+
+.card {
+  background: #161a22;
+  border: 1px solid #232936;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+.card h2 { margin: 0 0 16px; font-size: 17px; }
+
+label { display: block; font-size: 13px; color: #9aa4b8; margin: 12px 0 6px; }
+
+input[type='text'], input[type='password'] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid #2c3342;
+  background: #0f131a;
+  color: #e6e8ee;
+  font-size: 14px;
+}
+
+input:focus { outline: 2px solid #3b82f6; outline-offset: 1px; }
+
+button {
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  border: 1px solid #3b82f6;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.08); }
+
+button.ghost {
+  margin: 0;
+  background: transparent;
+  border-color: #2c3342;
+  color: #9aa4b8;
+  font-weight: 500;
+}
+
+.row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+#task-form { justify-content: flex-start; }
+#task-form input { flex: 1; }
+#task-form button { margin-top: 0; white-space: nowrap; }
+
+#task-list { list-style: none; padding: 0; margin: 18px 0 0; }
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #232936;
+  border-radius: 9px;
+  margin-bottom: 8px;
+  background: #12161e;
+}
+
+#task-list button {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: transparent;
+  border-color: #4b2b2b;
+  color: #ffb4b4;
+}
+
+.error { color: #ff8f8f; font-size: 13px; margin: 12px 0 0; }
+.hint { color: #6f7a8d; font-size: 12px; margin: 14px 0 0; }
+.hint code { color: #9aa4b8; }

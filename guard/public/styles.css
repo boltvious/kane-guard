@@ -1,0 +1,188 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #0f1115;
+  color: #e6e8ee;
+  min-height: 100vh;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  border-bottom: 1px solid #232936;
+  position: sticky;
+  top: 0;
+  background: #0f1115;
+  z-index: 10;
+}
+
+.brand { display: flex; align-items: center; gap: 14px; }
+
+.badge {
+  background: #3b5bdb;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+h1 { margin: 0; font-size: 19px; letter-spacing: -0.01em; }
+
+.status { color: #9aa4b8; font-size: 13px; }
+
+main {
+  padding: 24px 32px 48px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.summary {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: #1f2430;
+  border: 1px solid #2c3342;
+  color: #9aa4b8;
+}
+
+.pill b { color: #e6e8ee; }
+.pill.done { border-color: #2b6b3e; }
+.pill.done b { color: #4ade80; }
+.pill.would_act { border-color: #2b4b8b; }
+.pill.would_act b { color: #7fb4ff; }
+.pill.escalated { border-color: #6b4b2b; }
+.pill.escalated b { color: #fbbf24; }
+.pill.running b { color: #7fb4ff; }
+
+.timeline { display: flex; flex-direction: column; gap: 18px; }
+
+.iter {
+  background: #161a22;
+  border: 1px solid #232936;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.iter-done { border-left: 3px solid #4ade80; }
+.iter-escalated { border-left: 3px solid #fbbf24; }
+.iter-would_act { border-left: 3px solid #7fb4ff; }
+.iter-running { border-left: 3px solid #6f7a8d; }
+
+.iter-h {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid #232936;
+  font-size: 14px;
+}
+
+.iter-num {
+  color: #6f7a8d;
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+}
+
+.iter-file {
+  font-family: 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  color: #9aa4b8;
+  flex: 1;
+  word-break: break-all;
+}
+
+.iter-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.iter-badge-done { background: #0d3521; color: #4ade80; }
+.iter-badge-escalated { background: #3a2c10; color: #fbbf24; }
+.iter-badge-would_act { background: #122a4d; color: #7fb4ff; }
+.iter-badge-running { background: #1f2430; color: #9aa4b8; }
+
+.events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ev {
+  padding: 11px 18px;
+  border-bottom: 1px solid #1c2029;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ev:last-child { border-bottom: none; }
+
+.ev-label {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  margin-right: 8px;
+  background: #232936;
+  color: #9aa4b8;
+}
+
+.ev-trigger .ev-label { background: #2c3342; color: #cbd5e1; }
+.ev-run-completed .ev-label { background: #3a2c5b; color: #c4a3f0; }
+.ev-route-decided .ev-label { background: #3a2c10; color: #fbbf24; }
+.ev-policy-decided .ev-label { background: #1a3a2a; color: #86efac; }
+.ev-policy-probe .ev-label { background: #3a1f1f; color: #fca5a5; }
+.ev-loop-done .ev-label { background: #0d3521; color: #4ade80; }
+.ev-loop-escalated .ev-label { background: #3a2c10; color: #fbbf24; }
+.ev-loop-would-act .ev-label { background: #122a4d; color: #7fb4ff; }
+
+.ev-reason {
+  color: #9aa4b8;
+  font-size: 12.5px;
+  margin-top: 5px;
+}
+
+.ev em { color: #fca5a5; font-style: normal; font-size: 12px; }
+
+.ev code {
+  background: #0f1115;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.empty {
+  color: #6f7a8d;
+  padding: 40px 20px;
+  text-align: center;
+  background: #161a22;
+  border: 1px dashed #232936;
+  border-radius: 12px;
+}
+
+.foot {
+  margin-top: 32px;
+  color: #6f7a8d;
+  font-size: 12px;
+  text-align: center;
+}
+
+.foot code { color: #9aa4b8; }

@@ -1,0 +1,15 @@
+{
+  "name": "kane-bug-injection-sandbox",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deliberately breakable web app used to test whether Kane CLI actually catches injected bugs (false-pass probe).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "bug": "node toggle.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}

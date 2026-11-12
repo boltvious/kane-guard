@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ledger — Issues</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="dot"></span>
+      <h1>Ledger</h1>
+    </div>
+    <nav>
+      <a href="/guard">Kane Guard &rarr;</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="add">
+      <input id="title" type="text" placeholder="Apa yang perlu dikerjakan?" autocomplete="off" />
+      <button id="add">Tambah</button>
+    </section>
+
+    <ul id="list" class="list" aria-label="Daftar issue"></ul>
+    <p id="empty" class="empty" hidden>Belum ada issue.</p>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

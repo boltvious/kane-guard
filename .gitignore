@@ -1,0 +1,64 @@
+# =============================================================================
+# Kane Guard — submission repo
+#
+# The repository contains exactly three things:
+#   guard/         the product
+#   ledger/        the app under test
+#   kane_bugtest/  the 7-run experiment that motivated the guard
+#   README.md, DEMO.md, goal.md, goal4_last.md
+#
+# Everything else in this workspace belongs to unrelated projects and is
+# excluded wholesale. Nothing below is Kane Guard.
+# =============================================================================
+
+# --- unrelated projects living in the same workspace ---
+Project_kosong/
+
+# --- loose files at the root that are not Kane Guard ---
+apikey_agent_*.md
+key.md
+ipcamera.cfg
+desktop_test_capture.png
+*.mp3
+*.png
+*.cfg
+
+# --- runtime state ---
+node_modules/
+ledger/state.json
+guard/ledger.jsonl
+guard/.ledger-test.jsonl
+
+# --- Kane run output ---
+*.ndjson
+guard/run-live-*.ndjson
+kane_bugtest/run*.ndjson
+
+# --- app test switches ---
+ledger/bug.mode
+kane_bugtest/bug.mode
+
+# --- Kane local artifacts ---
+.testmuai/
+**/.testmuai/
+**/tests/output-*/
+
+# --- curl cookie jars from manual testing ---
+cj*.txt
+
+# --- credentials ---
+*.access_key
+.env
+.env.*
+
+# --- editor / OS ---
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# --- scratch ---
+*.log
+baseline_summary.txt
+fail_summary.txt
+summary_off.txt
