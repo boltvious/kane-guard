@@ -107,6 +107,64 @@ So the `fix_test` route is effectively unreachable with a strict policy. **We ke
 
 ---
 
+## Why Kane, and not something else
+
+Twelve runs in. Every line below is from our own data, not from the docs.
+
+### 1. The verdict can be trusted without qualification
+
+Seven injected bugs, seven correct verdicts. Zero false passes. Playwright
+needs a selector you write by hand; Kane needs a sentence in plain English
+and is still right. For an agent that has no eyes, this is the only signal
+that matters.
+
+### 2. `family` — a distinction most test tools don't make
+
+Other tools report "failed". Kane reports `application_issue` or
+`automation_bug`. That difference is why the guard exists at all. Without
+`family`, there is no way to know whether to fix the app or fix the test.
+
+### 3. `confirmed` — honesty that wasn't asked for
+
+Five of eight runs came back with `confirmed: false`. Kane withholds
+confirmation when it isn't sure. We initially read this as a weakness. After
+twelve runs, we read it as the most useful property: a verifier that says
+"I'm not sure" is worth more than one that is confidently wrong.
+
+### 4. Assertions that actually run
+
+Not "the UI looks calm". Kane executes JavaScript against the live DOM:
+
+```js
+Array.from(el(13).querySelectorAll('.task-title'))
+  .some(e => e.textContent.trim() === 'Buy milk')
+```
+
+That's why it can break a passing run. We checked.
+
+### 5. `--agent` NDJSON that doesn't lie
+
+Every step, every decision, every credit — as a structured stream. That's
+what makes a guard possible. Most test tools emit colored text that cannot
+be parsed.
+
+### 6. Diagnosis that reaches through layers
+
+On the `silent` run, Kane wrote *"the task API says the user is not
+authenticated"*. It didn't blame the button, didn't blame browser state. It
+pointed at the API layer. We didn't expect that from a tool that "clicks
+buttons".
+
+---
+
+What this costs is real, and it's documented separately: authoring is slow
+and expensive, the model is closed, and the diagnosis can be wrong. Those
+limits are in [`kane_bugtest/SUMMARY.md`](kane_bugtest/SUMMARY.md) and
+[`goal4_last.md`](goal4_last.md). A guardrail built on a tool whose limits
+you won't name is not a guardrail.
+
+---
+
 ## Running it
 
 Requires **Node 18+** and a **Chrome** install. No npm dependencies in either app.
