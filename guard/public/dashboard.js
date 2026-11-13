@@ -46,10 +46,16 @@ function groupByIteration(events) {
 }
 
 function terminalOf(iter) {
+  // Cari event terakhir yang menentukan nasib iterasi.
+  // agent_blocked lebih kuat dari loop_would_act: kalau agent mencoba
+  // bertindak dan ditolak, itu cerita yang lebih penting daripada
+  // "would act" yang cuma berarti "belum ada aksi".
   for (let i = iter.events.length - 1; i >= 0; i--) {
     const t = iter.events[i].type;
     if (t === 'loop_done') return { kind: 'done', label: 'DONE' };
     if (t === 'loop_escalated') return { kind: 'escalated', label: 'ESCALATED' };
+    if (t === 'agent_blocked') return { kind: 'blocked', label: 'BLOCKED' };
+    if (t === 'agent_acted') return { kind: 'acted', label: 'ACTED' };
     if (t === 'loop_would_act') return { kind: 'would_act', label: 'WOULD ACT' };
   }
   return { kind: 'running', label: 'RUNNING' };

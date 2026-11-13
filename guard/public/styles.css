@@ -75,6 +75,8 @@ main {
   overflow: hidden;
 }
 
+.iter-blocked { border-left: 3px solid #fca5a5; }
+.iter-acted { border-left: 3px solid #93c5fd; }
 .iter-done { border-left: 3px solid #4ade80; }
 .iter-escalated { border-left: 3px solid #fbbf24; }
 .iter-would_act { border-left: 3px solid #7fb4ff; }
@@ -111,6 +113,8 @@ main {
   border-radius: 4px;
 }
 
+.iter-badge-blocked { background: #3a1f1f; color: #fca5a5; }
+.iter-badge-acted { background: #1a2a3a; color: #93c5fd; }
 .iter-badge-done { background: #0d3521; color: #4ade80; }
 .iter-badge-escalated { background: #3a2c10; color: #fbbf24; }
 .iter-badge-would_act { background: #122a4d; color: #7fb4ff; }
